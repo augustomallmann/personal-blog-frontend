@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Meu Blog',
-    description: 'Este é meu blog',
+    title: 'Augusto Mallmann',
+    position: 'Front-end developer',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     author: '@augustomallmann',
   },
   plugins: [
