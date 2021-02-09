@@ -8,6 +8,10 @@ const links = [
     url: '/about',
   },
   {
+    label: 'Portfolio',
+    url: '/portfolio',
+  },
+  {
     label: 'Blog',
     url: '/blog',
   },
