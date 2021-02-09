@@ -15,7 +15,7 @@ export const LayoutMain = styled.main`
   width: 100%;
 
   ${media.greaterThan('large')`
-  padding: 5rem 0 0 3.75rem;
+  padding: 4rem 0 0 3.75rem;
   `}
 
 

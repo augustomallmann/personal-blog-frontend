@@ -48,6 +48,9 @@ const GlobalStyles = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  main{
+    position: relative;
+  }
   * {
     box-sizing: border-box;
   }

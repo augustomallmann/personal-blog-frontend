@@ -97,6 +97,9 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+    },
     'gatsby-plugin-sitemap',
 
     // this (optional) plugin enables Progressive Web App + Offline functionality

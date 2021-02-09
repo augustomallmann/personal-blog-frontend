@@ -15,8 +15,8 @@ const BlogPost = (props) => {
   const { currentPage, numPages } = props.pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const prevPage = currentPage - 1 === 1 ? '/' : `/pagina/${currentPage - 1}`;
-  const nextPage = `/pagina/${currentPage + 1}`;
+  const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/pagina/${currentPage - 1}`;
+  const nextPage = `/blog/pagina/${currentPage + 1}`;
 
   return (
     <Layout>
