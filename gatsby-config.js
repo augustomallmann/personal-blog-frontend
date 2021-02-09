@@ -7,6 +7,7 @@ module.exports = {
     position: 'Front-end developer',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     author: '@augustomallmann',
+    siteUrl: 'https://www.mallmann.dev',
   },
   plugins: [
     'gatsby-plugin-transition-link',

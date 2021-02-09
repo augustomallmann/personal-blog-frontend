@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 function SEO({
-  description, lang, meta, title,
+  description, lang, meta, title, image,
 }) {
   const { site } = useStaticQuery(
     graphql`
@@ -14,6 +14,7 @@ function SEO({
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -21,6 +22,10 @@ function SEO({
   );
 
   const metaDescription = description || site.siteMetadata.description;
+
+  const { siteUrl } = site.siteMetadata;
+
+  const ogImage = `${siteUrl}${image || '/assets/img/cover.png'}`;
 
   const defaultTitle = site.siteMetadata.title;
 
@@ -41,6 +46,10 @@ function SEO({
           content: title,
         },
         {
+          property: 'og:image',
+          content: ogImage,
+        },
+        {
           property: 'og:description',
           content: metaDescription,
         },
@@ -49,8 +58,12 @@ function SEO({
           content: 'website',
         },
         {
+          name: 'twitter:image:src',
+          content: ogImage,
+        },
+        {
           name: 'twitter:card',
-          content: 'summary',
+          content: 'summary_large_image',
         },
         {
           name: 'twitter:creator',
@@ -60,6 +73,7 @@ function SEO({
           name: 'twitter:title',
           content: title,
         },
+
         {
           name: 'twitter:description',
           content: metaDescription,
@@ -80,6 +94,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default SEO;
