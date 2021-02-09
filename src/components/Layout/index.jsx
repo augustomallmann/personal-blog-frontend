@@ -13,7 +13,7 @@ const Layout = ({ children }) => (
       <Sidebar />
     </TransitionPortal>
     <S.LayoutMain>{children}</S.LayoutMain>
-    <TransitionPortal level="top">
+    <TransitionPortal level="medium">
       <MenuBar />
     </TransitionPortal>
   </S.LayoutWrapper>

@@ -4,18 +4,19 @@ import media from 'styled-media-query';
 
 export const MenuBarWrapper = styled.aside`
   align-items: center;
-  background: var(--mediumBackground);
-  border-left: 1px solid var(--borders);
+  background: var(--secondaryBackground);
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
   padding: 0.8rem 0;
   position: fixed;
-  right: 0;
+  left: 0;
   width: 3.75rem;
+  z-index: 98;
+
+
   ${media.lessThan('large')`
-  border-top: 1px solid var(--borders);
   bottom: 0;
   flex-direction: row;
   height: auto;
@@ -28,6 +29,10 @@ export const MenuBarWrapper = styled.aside`
 export const MenuBarGroup = styled.div`
   display: flex;
   flex-direction: column;
+  &:first-of-type{
+    margin-top: 4rem;
+  }
+
   ${media.lessThan('large')`
     flex-direction: row;
   `}

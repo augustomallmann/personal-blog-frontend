@@ -59,17 +59,19 @@ const GlobalStyles = createGlobalStyle`
   }
   img {
     display: block;
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
   }
 
   body.dark {
     --borders: #38444d;
-    --texts: #8899a6;
+    --texts: #fff;
     --postColor: #fff;
-    --highlight: #1fa1f2;
-    --mediumBackground: #192734;
-    --background: #16202c;
+    --highlight: #B52D1F;
+    --primaryBackground: #2B2B2B;
+    --secondaryBackground: #2B2B2B;
+    --mediumBackground: #171D1C; //delete later
+    --background: #222222;
     --white: #fff;
     --black: #222;
   }

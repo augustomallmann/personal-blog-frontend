@@ -9,12 +9,13 @@ export const MenuLinksWrapper = styled.nav`
 `;
 
 export const MenuLinksList = styled.ul`
-  font-size: 1.2rem;
+  display: flex;
+  font-size: 1rem;
   font-weight: 300;
 `;
 
 export const MenuLinksItem = styled.li`
-  padding: 0.5rem 0;
+  padding: 0.5rem 1.5rem;
   .active {
     color: var(--highlight);
   }
