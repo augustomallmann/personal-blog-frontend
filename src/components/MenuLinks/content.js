@@ -7,6 +7,14 @@ const links = [
     label: 'Sobre Mim',
     url: '/about',
   },
+  {
+    label: 'Blog',
+    url: '/blog',
+  },
+  {
+    label: 'Contato',
+    url: '/contato',
+  },
 ];
 
 export default links;
