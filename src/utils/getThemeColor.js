@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-underscore-dangle */
 const getThemeColor = () => {
   const theme = typeof window !== 'undefined' && window.__theme;
