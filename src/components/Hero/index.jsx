@@ -4,6 +4,7 @@ import HeroImg from '../../../static/assets/svg/hero.svg';
 
 function Hero() {
   return (
+
     <S.HeroWrap>
       <S.HeroRow>
         <S.HeroColumn>

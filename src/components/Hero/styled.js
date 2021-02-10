@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeroWrap = styled.div`
-  color: var(--white);
+  color: var(--texts);
   max-width: 1300px;
   margin:  auto;
   height: 100%;
@@ -11,9 +11,9 @@ export const HeroWrap = styled.div`
 `;
 
 export const HeroRow = styled.div`
-display: flex;
-width: 100%;
-align-items:center;
+  display: flex;
+  width: 100%;
+  align-items:center;
 `;
 
 export const HeroColumn = styled.div`

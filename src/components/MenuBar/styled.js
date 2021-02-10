@@ -35,6 +35,9 @@ export const MenuBarGroup = styled.div`
 
   ${media.lessThan('large')`
     flex-direction: row;
+    &:first-of-type{
+      margin-top: 0rem;
+    }
   `}
 `;
 

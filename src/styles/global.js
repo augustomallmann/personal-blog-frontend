@@ -70,10 +70,10 @@ const GlobalStyles = createGlobalStyle`
     --borders: #38444d;
     --texts: #fff;
     --postColor: #fff;
-    --highlight: #B52D1F;
+    --highlight: #f55257;
     --primaryBackground: #2B2B2B;
     --secondaryBackground: #2B2B2B;
-    --mediumBackground: #171D1C; //delete later
+    --mediumBackground: #171D1C;
     --background: #222222;
     --white: #fff;
     --black: #222;
@@ -81,9 +81,11 @@ const GlobalStyles = createGlobalStyle`
 
   body.light {
     --borders: #dedede;
+    --texts: #000;
     --postColor: #111;
-    --texts: #555555;
-    --highlight: #1fa1f2;
+    --highlight: #fff;
+    --primaryBackground: #f55257;
+    --secondaryBackground: #f4f6f8;
     --mediumBackground: #f0f0f3;
     --background: #fff;
     --white: #fff;

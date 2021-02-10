@@ -3,9 +3,9 @@ import media from 'styled-media-query';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 export const MenuLinksWrapper = styled.nav`
-  ${media.lessThan('large')`
-    display: none;
-  `}
+  // ${media.lessThan('large')`
+  //   display: none;
+  // `}
 `;
 
 export const MenuLinksList = styled.ul`
