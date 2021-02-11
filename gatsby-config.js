@@ -41,7 +41,7 @@ module.exports = {
         apiURL: 'http://localhost:1337',
         queryLimit: 1000, // Default to 100
         contentTypes: ['pages'],
-        singleTypes: ['hero'],
+        singleTypes: ['hero', 'menu'],
       },
     },
     {

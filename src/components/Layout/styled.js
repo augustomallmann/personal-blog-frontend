@@ -11,6 +11,7 @@ export const LayoutWrapper = styled.section`
 
 export const LayoutMain = styled.main`
   display: flex;
+  flex-direction: column;
   background: var(--background);
   min-height: 100vh;
   width: 100%;

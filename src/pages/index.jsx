@@ -21,6 +21,16 @@ const AboutPage = ({ data }) => {
 
 export const query = graphql`
   query Hero{
+    allStrapiMenu{
+      edges{
+        node{
+          customLink{
+            linkName
+            url
+          }
+        }
+      }
+    }
     strapiHero{
       headingOne
       subtitle

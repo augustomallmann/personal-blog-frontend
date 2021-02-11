@@ -7,6 +7,7 @@ import { ListThumbnails } from '@styled-icons/foundation/ListThumbnails';
 import { Sun } from '@styled-icons/feather/Sun';
 import { GridHorizontal } from '@styled-icons/boxicons-regular/GridHorizontal';
 import { ArrowUp } from '@styled-icons/bootstrap/ArrowUp';
+import { Moon } from '@styled-icons/evaicons-solid/Moon';
 import * as S from './styled';
 import getThemeColor from '../../utils/getThemeColor';
 
@@ -60,7 +61,7 @@ const MenuBar = () => {
           }}
           className={theme}
         >
-          <Sun />
+          {isDarkMode ? <Sun /> : <Moon />}
         </S.MenuBarItem>
         <S.MenuBarItem
           title="Mudar visualização"

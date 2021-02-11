@@ -1,24 +1,18 @@
-const links = [
-  {
-    label: 'Home',
-    url: '/',
-  },
-  {
-    label: 'Sobre Mim',
-    url: '/about',
-  },
-  {
-    label: 'Portfolio',
-    url: '/portfolio',
-  },
-  {
-    label: 'Blog',
-    url: '/blog',
-  },
-  {
-    label: 'Contato',
-    url: '/contato',
-  },
-];
+import { graphql } from 'gatsby';
 
-export default links;
+export const query = graphql`
+  query Menu {
+  
+      allStrapiMenu{
+        edges{
+          node{
+            customLink{
+              linkName
+              url
+            }
+          }
+        }
+      }
+    
+  }
+`;
