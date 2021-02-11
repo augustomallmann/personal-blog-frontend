@@ -35,22 +35,45 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
+    allStrapiBlogPosts(sort:{fields: Data, order: DESC}){
+      edges{
+        node{
+          Title
+          Data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+          Subtitle
+          Content
+          Slug
+          SEO{
+            Title
+            Description
+          }
+        }
+        next{
+          Title
+          Slug
+        }
+        previous{
+          Title
+          Slug
+        }
+      }
+    }
     }
   `).then((result) => {
-    // const posts = result.data.allMarkdownRemark.edges;
+    const posts = result.data.allStrapiBlogPosts.edges;
     const pages = result.data.allStrapiPages.edges;
 
-    // posts.forEach(({ node, next, previous }) => {
-    //   createPage({
-    //     path: node.fields.slug,
-    //     component: path.resolve('./src/templates/blog-post.jsx'),
-    //     context: {
-    //       slug: node.fields.slug,
-    //       previousPost: next,
-    //       nextPost: previous,
-    //     },
-    //   });
-    // });
+    posts.forEach(({ node, previous, next }) => {
+      createPage({
+        path: node.Slug,
+        component: path.resolve('./src/templates/blog-post.jsx'),
+        context: {
+          slug: node.slug,
+          nextPost: previous,
+          previousPost: next,
+        },
+      });
+    });
 
     pages.forEach(({ node }) => {
       createPage({
@@ -62,20 +85,20 @@ exports.createPages = ({ graphql, actions }) => {
       });
     });
 
-    // const postsPerPage = 5;
-    // const numPages = Math.ceil(posts.length / postsPerPage);
+    const postsPerPage = 5;
+    const numPages = Math.ceil(posts.length / postsPerPage);
 
-    // Array.from({ length: numPages }).forEach((_, index) => {
-    //   createPage({
-    //     path: index === 0 ? '/blog' : `/blog/pagina/${index + 1}`,
-    //     component: path.resolve('./src/templates/blog-list.jsx'),
-    //     context: {
-    //       limit: postsPerPage,
-    //       skip: index * postsPerPage,
-    //       numPages,
-    //       currentPage: index + 1,
-    //     },
-    //   });
-    // });
+    Array.from({ length: numPages }).forEach((_, index) => {
+      createPage({
+        path: index === 0 ? '/blog' : `/blog/pagina/${index + 1}`,
+        component: path.resolve('./src/templates/blog-list.jsx'),
+        context: {
+          limit: postsPerPage,
+          skip: index * postsPerPage,
+          numPages,
+          currentPage: index + 1,
+        },
+      });
+    });
   });
 };

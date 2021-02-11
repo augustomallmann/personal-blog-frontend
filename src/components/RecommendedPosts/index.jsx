@@ -8,28 +8,29 @@ const RecommendedPosts = ({ next, previous }) => (
   <S.RecommendedWrapper>
     {previous && (
       <S.RecommendedLink
-        to={previous.fields.slug}
+        to={`/${previous.Slug}`}
         cover
         direction="right"
         bg={getThemeColor()}
         duration={0.6}
         className="previous"
       >
-        {previous.frontmatter.title}
+        {previous.Title}
 
       </S.RecommendedLink>
     )}
+    { console.log(previous)}
 
     {next && (
     <S.RecommendedLink
-      to={next.fields.slug}
+      to={`/${next.Slug}`}
       cover
       direction="right"
       bg={getThemeColor()}
       duration={0.6}
       className="next"
     >
-      {next.frontmatter.title}
+      {next.Title}
 
     </S.RecommendedLink>
     )}
@@ -38,20 +39,13 @@ const RecommendedPosts = ({ next, previous }) => (
 
 RecommendedPosts.propTypes = {
   next: propTypes.shape({
-    frontmatter: propTypes.shape({
-      title: propTypes.string.isRequired,
-    }),
-    fields: propTypes.shape({
-      slug: propTypes.string.isRequired,
-    }),
+    Title: propTypes.string.isRequired,
+    Slug: propTypes.string.isRequired,
   }),
   previous: propTypes.shape({
-    frontmatter: propTypes.shape({
-      title: propTypes.string.isRequired,
-    }),
-    fields: propTypes.shape({
-      slug: propTypes.string.isRequired,
-    }),
+    Title: propTypes.string.isRequired,
+
+    Slug: propTypes.string.isRequired,
   }),
 };
 

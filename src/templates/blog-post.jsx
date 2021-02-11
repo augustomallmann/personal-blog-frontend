@@ -2,38 +2,35 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { graphql } from 'gatsby';
+import Markdown from 'react-markdown';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import * as S from '../components/Posts/styled';
+
 import RecommendedPosts from '../components/RecommendedPosts';
 
 const BlogPost = ({ data, pageContext }) => {
-  const post = data.markdownRemark;
+  const post = data.strapiBlogPosts;
   const next = pageContext.nextPost;
   const previous = pageContext.previousPost;
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description}
+        title={post.Title}
+        description={post.SEO.Description}
       />
       <S.PostHeader>
         <S.PostDate>
-          {post.frontmatter.date}
-          {' '}
-          -
-          {' '}
-          {post.timeToRead}
-          {' '}
-          min de leitura
+          {post.Data}
         </S.PostDate>
         <S.PostTitle>
-          {post.frontmatter.title}
+          {post.Title}
         </S.PostTitle>
-        <S.PostDescription>{post.frontmatter.description}</S.PostDescription>
+        <S.PostDescription>{post.Description}</S.PostDescription>
       </S.PostHeader>
       <S.MainContent>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Markdown source={post.Content} escapeHtml={false} />
+
       </S.MainContent>
       <RecommendedPosts next={next} previous={previous} />
     </Layout>
@@ -41,17 +38,17 @@ const BlogPost = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query Posts($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        description
-        date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+  query Posts {
+    strapiBlogPosts{
+      Title
+      Subtitle
+      Data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+      Content
+      SEO{
+        Description
+        Title
       }
-      html
-      timeToRead
     }
-
   }
 `;
 
