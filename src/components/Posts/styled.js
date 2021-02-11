@@ -1,26 +1,51 @@
 import styled from 'styled-components';
 
 export const PostHeader = styled.header`
+  position: relative;
   color: var(--white);
   margin: auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 25rem;
   max-width: 70rem;
-  padding: 5rem 5rem 0;
+  padding: 5rem 5rem 1rem;
+  z-index:0;
+`;
+
+export const Shadow = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom:0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(43, 43, 43, 0) 26.56%, #2B2B2B 100%);
+  z-index:1;
+
 `;
 
 export const PostTitle = styled.h1`
+  position: relative;
+  z-index:2;
   font-size: 4rem;
   font-weight: 700;
   padding: 0 1.4rem;
-  margin: 1rem auto;
+  margin: 1rem 0;
 `;
 
 export const PostDescription = styled.h2`
+  position: relative;
+  z-index:2;
   font-size: 2rem;
   font-weight: 200;
   padding: 0 1.4rem;
 `;
 
 export const PostDate = styled.p`
+  position: relative;
+  z-index:2;
   font-size: 1.1rem;
   font-weight: 100;
   padding: 0 1.4rem;

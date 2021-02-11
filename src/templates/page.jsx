@@ -16,7 +16,8 @@ const BlogPost = ({ data }) => {
         title={post.Title}
         description={post.Description}
       />
-      <S.PostHeader>
+      <S.PostHeader style={{ backgroundImage: ` url(${post.Thumbnail.childImageSharp.fluid.src})` }}>
+        <S.Shadow />
 
         <S.PostTitle>
           {post.Title}
@@ -37,6 +38,13 @@ export const query = graphql`
       Title
       Description
       Content
+      Thumbnail {
+        childImageSharp {
+          fluid(maxWidth: 960) {
+            src
+          }
+        }
+      }
     }
   }
 `;
