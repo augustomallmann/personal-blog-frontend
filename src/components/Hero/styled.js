@@ -23,7 +23,7 @@ export const HeroColumn = styled.div`
   padding: 0 15px;
 `;
 
-export const HeroTitle = styled.h1`
+export const HeroTitle = styled.div`
     font-size: 3.5rem;
     text-align: left;
     font-weight: bold;
