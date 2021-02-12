@@ -18,7 +18,6 @@ const BlogPost = ({ data }) => {
       />
       <S.PostHeader style={{ backgroundImage: ` url(${post.Thumbnail.childImageSharp.fluid.src})` }}>
         <S.Shadow />
-
         <S.PostTitle>
           {post.Title}
         </S.PostTitle>

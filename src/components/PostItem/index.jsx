@@ -4,23 +4,39 @@ import * as S from './styled';
 import getThemeColor from '../../utils/getThemeColor';
 
 const PostItem = ({
-  slug, background, category, date, timeToRead, title, description,
+  slug, category, date, title, thumbnail,
 }) => (
   <S.PostItemLink to={slug} cover direction="right" bg={getThemeColor()} duration={0.6}>
     <S.PostItemWrapper>
-      <S.PostItemTag background={background}>{category}</S.PostItemTag>
+
+      {/* imagem
+          TOR | category
+          title
+      */}
+
+      <S.PostThumbnail src={thumbnail.childImageSharp.fluid.src} />
+
       <S.PostItemInfo>
-        <S.PostItemDate>
-          {date}
-          |
-          {timeToRead}
-        </S.PostItemDate>
+
         <S.PostItemTitle>
           {title}
         </S.PostItemTitle>
-        <S.PostItemDescription>
+        <S.Divider />
+        <S.PostDetailsWrap>
+
+          <S.PostItemDate>
+            {date}
+          </S.PostItemDate>
+          <S.Separator>
+            •
+          </S.Separator>
+          <S.PostItemTag>
+            Categoria
+          </S.PostItemTag>
+        </S.PostDetailsWrap>
+        {/* <S.PostItemDescription>
           {description}
-        </S.PostItemDescription>
+        </S.PostItemDescription> */}
       </S.PostItemInfo>
     </S.PostItemWrapper>
   </S.PostItemLink>
@@ -29,10 +45,8 @@ const PostItem = ({
 PostItem.propTypes = {
   slug: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  background: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  timeToRead: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
 };
 export default PostItem;

@@ -66,9 +66,16 @@ const GlobalStyles = createGlobalStyle`
     height: auto;
   }
 
+  .container{
+    max-width: 1300px;
+    margin:  auto;
+  }
+
   body.dark {
     --borders: #38444d;
     --texts: #fff;
+    --menuLinks: #fff;
+    --textHover: #f4f6f8;
     --postColor: #fff;
     --highlight: #f55257;
     --primaryBackground: #252525;
@@ -82,8 +89,10 @@ const GlobalStyles = createGlobalStyle`
   body.light {
     --borders: #dedede;
     --texts: #000;
+    --textHover: #252525;
     --postColor: #111;
-    --highlight: #fff;
+    --highlight: #000;
+    --menuLinks: #fff;
     --primaryBackground: #f55257;
     --secondaryBackground: #f4f6f8;
     --mediumBackground: #f0f0f3;

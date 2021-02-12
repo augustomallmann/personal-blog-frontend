@@ -38,7 +38,7 @@ export const PostTitle = styled.h1`
 export const PostDescription = styled.h2`
   position: relative;
   z-index:2;
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: 200;
   padding: 0 1.4rem;
 `;
@@ -65,8 +65,8 @@ export const MainContent = styled.section`
   .tags,
   iframe,
   .button-post {
-    color: var(--white);
-    font-size: 1.25rem;
+    color: var(--texts);
+    font-size: 1rem;
     font-weight: 300;
     line-height: 1.7;
     letter-spacing: 0.069rem;

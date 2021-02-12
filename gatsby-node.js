@@ -65,7 +65,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     posts.forEach(({ node, previous, next }) => {
       createPage({
-        path: node.Slug,
+        path: `/blog/${node.Slug}`,
         component: path.resolve('./src/templates/blog-post.jsx'),
         context: {
           slug: node.slug,

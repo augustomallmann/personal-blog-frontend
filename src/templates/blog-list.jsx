@@ -7,38 +7,39 @@ import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import PostItem from '../components/PostItem';
 import Pagination from '../components/Pagination';
-
+import HeaderDetails from '../components/HeaderDetails';
 import * as S from '../components/ListWrapper/styled';
 
 const BlogPost = (props) => {
-  const postList = props.data.allMarkdownRemark.edges;
+  const postList = props.data.allStrapiBlogPosts.edges;
+  const blogDetails = props.data.allStrapiBlog.edges;
   const { currentPage, numPages } = props.pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
   const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/pagina/${currentPage - 1}`;
   const nextPage = `/blog/pagina/${currentPage + 1}`;
-
   return (
     <Layout>
       <SEO title="Home" />
+      {isFirst ? <HeaderDetails details={blogDetails} /> : null}
       <S.ListWrapper>
+
         {postList.map(({
           node: {
-            fields: { slug },
-            frontmatter: {
-              background, category, date, description, title,
-            },
-            timeToRead,
+            Title,
+            Data,
+            Subtitle,
+            Slug,
+            Thumbnail,
+
           },
         }) => (
           <PostItem
-            slug={slug}
-            category={category}
-            background={background}
-            date={date}
-            timeToRead={timeToRead}
-            title={title}
-            description={description}
+            slug={Slug}
+            date={Data}
+            title={Title}
+            description={Subtitle}
+            thumbnail={Thumbnail}
           />
         ))}
       </S.ListWrapper>
@@ -55,29 +56,36 @@ const BlogPost = (props) => {
 };
 
 export const query = graphql`
-  query PostList($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
-      sort:{fields: frontmatter___date, order: DESC}
-      limit: $limit
-      skip: $skip
-      ) {
-      edges {
-        node {
-          fields{
-            slug
+{
+  allStrapiBlog {
+    edges {
+      node {
+        description
+        title
+      }
+    }
+  }
+  allStrapiBlogPosts(sort: {fields: Data, order: DESC}) {
+    edges {
+      node {
+        Title
+        Data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+        Subtitle
+        Content
+        Slug
+        Thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 960) {
+              src
+            }
           }
-          frontmatter {
-            background
-            category
-            date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-            description
-            title
-          }
-          timeToRead
         }
       }
     }
   }
+}
+
+ 
 `;
 
 export default BlogPost;

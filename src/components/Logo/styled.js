@@ -13,7 +13,7 @@ export const LogoLink = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: var(--texts);
+  color: var(--menuLinks);
   text-decoration: none;
   transition: color 0.5s;
 
@@ -32,6 +32,8 @@ export const LogoText = styled.h1`
   text-decoration: none;
   transition: color 0.5s;
   text-transform: uppercase;
+  color: var(--menuLinks);
+
   `;
 
 export const LogoIcon = styled.span`
