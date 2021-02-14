@@ -15,10 +15,10 @@ const Portfolios = (props) => {
   const portfolioDetails = props.data.strapiPortofolio;
 
   console.log(portfolioDetails);
-  const { currentPage, numPages } = props.pageContext;
+  const { currentPage, numPortfolioPages } = props.pageContext;
 
   const isFirst = currentPage === 1;
-  const isLast = currentPage === numPages;
+  const isLast = currentPage === numPortfolioPages;
 
   const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/pagina/${currentPage - 1}`;
   const nextPage = `/blog/pagina/${currentPage + 1}`;
@@ -52,7 +52,7 @@ const Portfolios = (props) => {
         isFirst={isFirst}
         isLast={isLast}
         currentPage={currentPage}
-        numPages={numPages}
+        numPages={numPortfolioPages}
         prevPage={prevPage}
         nextPage={nextPage}
       />

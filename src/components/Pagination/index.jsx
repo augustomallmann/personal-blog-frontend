@@ -8,6 +8,7 @@ const Pagination = ({
   isFirst, isLast, currentPage, numPages, prevPage, nextPage,
 }) => (
   <S.PaginationWrapper>
+
     {!isFirst && (
     <AniLink
       cover

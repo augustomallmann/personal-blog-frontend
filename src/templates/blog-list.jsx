@@ -13,12 +13,11 @@ import * as S from '../components/ListWrapper/styled';
 const BlogPost = (props) => {
   const postList = props.data.allStrapiBlogPosts.edges;
   const blogDetails = props.data.strapiBlog;
-  console.log(blogDetails);
 
-  const { currentPage, numPages } = props.pageContext;
+  const { currentPage, numBlogPages } = props.pageContext;
 
   const isFirst = currentPage === 1;
-  const isLast = currentPage === numPages;
+  const isLast = currentPage === numBlogPages;
 
   const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/pagina/${currentPage - 1}`;
   const nextPage = `/blog/pagina/${currentPage + 1}`;
@@ -28,7 +27,6 @@ const BlogPost = (props) => {
       <SEO title="Home" />
       {isFirst ? <HeaderDetails details={blogDetails} /> : null}
       <S.ListWrapper>
-
         {postList.map(({
           node: {
             Title,
@@ -52,7 +50,7 @@ const BlogPost = (props) => {
         isFirst={isFirst}
         isLast={isLast}
         currentPage={currentPage}
-        numPages={numPages}
+        numPages={numBlogPages}
         prevPage={prevPage}
         nextPage={nextPage}
       />
