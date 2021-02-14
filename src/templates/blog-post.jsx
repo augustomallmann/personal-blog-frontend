@@ -4,7 +4,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Markdown from 'react-markdown';
 import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import SEO from '../components/Seo';
 import * as S from '../components/Posts/styled';
 
 import RecommendedPosts from '../components/RecommendedPosts';

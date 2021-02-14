@@ -19,7 +19,6 @@ const RecommendedPosts = ({ next, previous }) => (
 
       </S.RecommendedLink>
     )}
-    { console.log(previous)}
 
     {next && (
     <S.RecommendedLink
