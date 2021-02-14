@@ -4,11 +4,11 @@ import Logo from '../Logo';
 import * as S from './styled';
 import MenuLinks from '../MenuLinks';
 
-const Sidebar = () => (
-  <S.SidebarWrapper>
+const Navbar = () => (
+  <S.NavbarWrapper>
     <Logo />
     <MenuLinks />
-  </S.SidebarWrapper>
+  </S.NavbarWrapper>
 );
 
-export default Sidebar;
+export default Navbar;

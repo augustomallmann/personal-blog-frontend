@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-export const SidebarWrapper = styled.div`
+export const NavbarWrapper = styled.div`
   align-items: center;
   border-right: 1px solid var(--borders);
   background: var(--primaryBackground);

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import * as S from './styled';
-import HeroImg from '../../../static/assets/svg/hero.svg';
+import HeroImg from '../../images/hero.svg';
 
 const Hero = ({ headingOne, subtitle, description }) => (
 

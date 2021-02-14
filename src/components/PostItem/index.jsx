@@ -8,13 +8,7 @@ const PostItem = ({
 }) => (
   <S.PostItemLink to={slug} cover direction="right" bg={getThemeColor()} duration={0.6}>
     <S.PostItemWrapper>
-
-      {/* imagem
-          TOR | category
-          title
-      */}
-
-      <S.PostThumbnail src={thumbnail.childImageSharp.fluid.src} />
+      {thumbnail && <S.PostThumbnail src={thumbnail.childImageSharp.fluid.src} />}
 
       <S.PostItemInfo>
 
