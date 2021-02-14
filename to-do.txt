@@ -1,5 +1,3 @@
-/blog
-/portfolio
-imagens
+paginação
 responsividade
 seo
