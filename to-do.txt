@@ -1,6 +1,3 @@
-
 responsividade
 seo
-adicionar link no logo
-adicionar link na setinha
-remover grid 
+imagens eesponsivas
