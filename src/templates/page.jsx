@@ -13,18 +13,18 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title={post.Title}
-        description={post.Description}
+        title={post.title}
+        description={post.description}
       />
-      <S.PostHeader style={{ backgroundImage: ` url(${post.Thumbnail.childImageSharp.fluid.src})` }}>
+      <S.PostHeader style={{ backgroundImage: ` url(${post.thumbnail.childImageSharp.fluid.src})` }}>
         <S.Shadow />
         <S.PostTitle>
-          {post.Title}
+          {post.title}
         </S.PostTitle>
-        <S.PostDescription>{post.Description}</S.PostDescription>
+        <S.PostDescription>{post.description}</S.PostDescription>
       </S.PostHeader>
       <S.MainContent>
-        <Markdown source={post.Content} escapeHtml={false} />
+        <Markdown source={post.content} escapeHtml={false} />
       </S.MainContent>
     </Layout>
   );
@@ -33,11 +33,11 @@ const BlogPost = ({ data }) => {
 export const query = graphql`
   query Pages {
     strapiPages{
-      Slug
-      Title
-      Description
-      Content
-      Thumbnail {
+      slug
+      title
+      description
+      content
+      thumbnail {
         childImageSharp {
           fluid(maxWidth: 960) {
             src

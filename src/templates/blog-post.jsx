@@ -16,21 +16,21 @@ const BlogPost = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO
-        title={post.Title}
-        description={post.SEO.Description}
+        title={post.title}
+        description={post.seo.description}
       />
-      <S.PostHeader style={{ backgroundImage: ` url(${post.Thumbnail.childImageSharp.fluid.src})` }}>
+      <S.PostHeader style={{ backgroundImage: ` url(${post.thumbnail.childImageSharp.fluid.src})` }}>
         <S.Shadow />
         <S.PostDate>
-          {post.Data}
+          {post.data}
         </S.PostDate>
         <S.PostTitle>
-          {post.Title}
+          {post.title}
         </S.PostTitle>
-        <S.PostDescription>{post.Description}</S.PostDescription>
+        <S.PostDescription>{post.description}</S.PostDescription>
       </S.PostHeader>
       <S.MainContent>
-        <Markdown source={post.Content} escapeHtml={false} />
+        <Markdown source={post.content} escapeHtml={false} />
 
       </S.MainContent>
       <RecommendedPosts next={next} previous={previous} />
@@ -39,32 +39,35 @@ const BlogPost = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query Posts {
-    strapiBlogPosts {
-      Title
-      Data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-      Subtitle
-      Content
-      Slug
-      SEO {
-        Description
-        OpenGraphImage {
-          childImageSharp {
-            fluid {
-              src
-            }
-          }
-        }
-      }
-      Thumbnail {
+query Posts {
+  strapiBlogPosts {
+    title
+    data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+    subtitle
+    content
+    slug
+    seo {
+      description
+      ogImage {
         childImageSharp {
-          fluid(maxWidth: 960) {
+          fluid {
             src
           }
         }
       }
     }
+    thumbnail {
+      childImageSharp {
+        fluid(maxWidth: 960) {
+          src
+        }
+      }
+    }
   }
+}
+
+
+
 
 `;
 

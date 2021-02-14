@@ -29,13 +29,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'posts',
-        path: `${__dirname}/posts`,
-      },
-    },
-    {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: 'http://localhost:1337',
@@ -74,11 +67,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Mallmann.dev',
+        short_name: 'Mallmann.dev',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#fff',
+        theme_color: '#E45E5D',
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },

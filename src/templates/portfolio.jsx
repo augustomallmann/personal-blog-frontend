@@ -13,18 +13,18 @@ const Portfolios = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title={portfolio.Title}
-        description={portfolio.Description}
+        title={portfolio.title}
+        description={portfolio.description}
       />
-      <S.PostHeader style={{ backgroundImage: ` url(${portfolio.Thumbnail.childImageSharp.fluid.src})` }}>
+      <S.PostHeader style={{ backgroundImage: ` url(${portfolio.thumbnail.childImageSharp.fluid.src})` }}>
         <S.Shadow />
         <S.PostTitle>
           {portfolio.Title}
         </S.PostTitle>
-        <S.PostDescription>{portfolio.Description}</S.PostDescription>
+        <S.PostDescription>{portfolio.description}</S.PostDescription>
       </S.PostHeader>
       <S.MainContent>
-        <Markdown source={portfolio.Content} escapeHtml={false} />
+        <Markdown source={portfolio.content} escapeHtml={false} />
       </S.MainContent>
     </Layout>
   );
@@ -33,11 +33,11 @@ const Portfolios = ({ data }) => {
 export const query = graphql`
 query Portfolio {
   strapiPortfolios {
-    Title
-    Date
-    Description
+    title
+    date
+    description
     Content
-    Thumbnail {
+    thumbnail {
       childImageSharp {
         fluid{
 

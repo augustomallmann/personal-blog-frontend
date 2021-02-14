@@ -31,26 +31,25 @@ exports.createPages = ({ graphql, actions }) => {
     allStrapiPages {
       edges {
         node {
-          Slug
+          slug
         }
       }
     }
-    allStrapiBlogPosts(sort: {fields: Data, order: DESC}) {
+    allStrapiBlogPosts(sort: {fields: data, order: DESC}) {
       edges {
         node {
-          Title
-          Data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-          Subtitle
-          Slug
+          title
+          data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+          slug
         }
       }
       totalCount
     }
-    allStrapiPortfolios(sort: {order: DESC, fields: Date}) {
+    allStrapiPortfolios(sort: {order: DESC, fields: date}) {
       edges {
         node {
-          Date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-          Title
+          title
+          date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
           slug
         }
       }
@@ -69,7 +68,7 @@ exports.createPages = ({ graphql, actions }) => {
     // create a page for each blog post
     posts.forEach(({ node, previous, next }) => {
       createPage({
-        path: `/blog/${node.Slug}`,
+        path: `/blog/${node.slug}`,
         component: path.resolve('./src/templates/blog-post.jsx'),
         context: {
           slug: node.slug,
@@ -94,10 +93,10 @@ exports.createPages = ({ graphql, actions }) => {
     // create the static regular pages
     pages.forEach(({ node }) => {
       createPage({
-        path: node.Slug,
+        path: node.slug,
         component: path.resolve('./src/templates/page.jsx'),
         context: {
-          slug: node.Slug,
+          slug: node.slug,
         },
       });
     });

@@ -29,20 +29,20 @@ const BlogPost = (props) => {
       <S.ListWrapper>
         {postList.map(({
           node: {
-            Title,
-            Data,
-            Subtitle,
-            Slug,
-            Thumbnail,
+            slug,
+            data,
+            title,
+            subtitle,
+            thumbnail,
 
           },
         }) => (
           <PostItem
-            slug={Slug}
-            date={Data}
-            title={Title}
-            description={Subtitle}
-            thumbnail={Thumbnail}
+            slug={slug}
+            date={data}
+            title={title}
+            description={subtitle}
+            thumbnail={thumbnail}
           />
         ))}
       </S.ListWrapper>
@@ -64,15 +64,15 @@ query( $skip: Int!, $limit: Int!){
     description
     title
   }
-  allStrapiBlogPosts(sort: {fields: Data, order: DESC}, skip: $skip, limit: $limit) {
+  allStrapiBlogPosts(sort: {fields: data, order: DESC}, skip: $skip, limit: $limit) {
     edges {
       node {
-        Title
-        Data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-        Subtitle
-        Content
-        Slug
-        Thumbnail {
+        title
+        data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+        subtitle
+        content
+        slug
+        thumbnail {
           childImageSharp {
             fluid(maxWidth: 960) {
               src

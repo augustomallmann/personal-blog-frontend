@@ -14,7 +14,6 @@ const Portfolios = (props) => {
   const postList = props.data.allStrapiPortfolios.edges;
   const portfolioDetails = props.data.strapiPortofolio;
 
-  console.log(portfolioDetails);
   const { currentPage, numPortfolioPages } = props.pageContext;
 
   const isFirst = currentPage === 1;
@@ -31,20 +30,20 @@ const Portfolios = (props) => {
 
         {postList.map(({
           node: {
-            Title,
-            Data,
-            Subtitle,
-            Slug,
-            Thumbnail,
+            slug,
+            data,
+            title,
+            subtitle,
+            thumbnail,
 
           },
         }) => (
           <PostItem
-            slug={Slug}
-            date={Data}
-            title={Title}
-            description={Subtitle}
-            thumbnail={Thumbnail}
+            slug={slug}
+            date={data}
+            title={title}
+            description={subtitle}
+            thumbnail={thumbnail}
           />
         ))}
       </S.ListWrapper>
@@ -66,14 +65,14 @@ query ( $skip: Int!, $limit: Int!) {
     title
     description
   }
-  allStrapiPortfolios(limit: $limit, skip: $skip, sort: {order: DESC, fields: Date}) {
+  allStrapiPortfolios(limit: $limit, skip: $skip, sort: {order: DESC, fields: date}) {
     edges {
       node {
         Content
-        Date
-        Description
-        Title
-        Thumbnail {
+        date
+        description
+        title
+        thumbnail {
           childImageSharp {
             fluid(maxWidth: 960) {
               src

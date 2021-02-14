@@ -53,6 +53,8 @@ const GlobalStyles = createGlobalStyle`
   }
   * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
+
   }
   body {
     background: #16202c;
