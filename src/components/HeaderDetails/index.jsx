@@ -5,22 +5,15 @@ import * as S from './styled';
 function HeaderDetails({ details }) {
   return (
     <S.HeaderWrap>
-      {details.map(({
-        node: {
-          title,
-          description,
+      <>
+        <S.HeadingOne>
+          {details.title}
+        </S.HeadingOne>
+        <S.Description>
+          {details.description}
+        </S.Description>
+      </>
 
-        },
-      }) => (
-        <>
-          <S.HeadingOne>
-            {title}
-          </S.HeadingOne>
-          <S.Description>
-            {description}
-          </S.Description>
-        </>
-      ))}
     </S.HeaderWrap>
   );
 }

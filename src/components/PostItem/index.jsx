@@ -31,7 +31,7 @@ const PostItem = ({
             •
           </S.Separator>
           <S.PostItemTag>
-            Categoria
+            {category}
           </S.PostItemTag>
         </S.PostDetailsWrap>
         {/* <S.PostItemDescription>

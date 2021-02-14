@@ -10,11 +10,11 @@ import Pagination from '../components/Pagination';
 import HeaderDetails from '../components/HeaderDetails';
 import * as S from '../components/ListWrapper/styled';
 
-const BlogPost = (props) => {
-  const postList = props.data.allStrapiBlogPosts.edges;
-  const blogDetails = props.data.strapiBlog;
-  console.log(blogDetails);
+const Portfolios = (props) => {
+  const postList = props.data.allStrapiPortfolios.edges;
+  const portfolioDetails = props.data.strapiPortofolio;
 
+  console.log(portfolioDetails);
   const { currentPage, numPages } = props.pageContext;
 
   const isFirst = currentPage === 1;
@@ -26,7 +26,7 @@ const BlogPost = (props) => {
   return (
     <Layout>
       <SEO title="Home" />
-      {isFirst ? <HeaderDetails details={blogDetails} /> : null}
+      {isFirst ? <HeaderDetails details={portfolioDetails} /> : null}
       <S.ListWrapper>
 
         {postList.map(({
@@ -61,19 +61,18 @@ const BlogPost = (props) => {
 };
 
 export const query = graphql`
-query( $skip: Int!, $limit: Int!){
-  strapiBlog {
-    description
+query ( $skip: Int!, $limit: Int!) {
+  strapiPortofolio {
     title
+    description
   }
-  allStrapiBlogPosts(sort: {fields: Data, order: DESC}, skip: $skip, limit: $limit) {
+  allStrapiPortfolios(limit: $limit, skip: $skip, sort: {order: DESC, fields: Date}) {
     edges {
       node {
-        Title
-        Data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-        Subtitle
         Content
-        Slug
+        Date
+        Description
+        Title
         Thumbnail {
           childImageSharp {
             fluid(maxWidth: 960) {
@@ -86,7 +85,6 @@ query( $skip: Int!, $limit: Int!){
   }
 }
 
- 
 `;
 
-export default BlogPost;
+export default Portfolios;

@@ -28,41 +28,45 @@ exports.createPages = ({ graphql, actions }) => {
 
   return graphql(`
   {
-    allStrapiPages{
-      edges{
-        node{
+    allStrapiPages {
+      edges {
+        node {
           Slug
         }
       }
     }
-    allStrapiBlogPosts(sort:{fields: Data, order: DESC}){
-      edges{
-        node{
+    allStrapiBlogPosts(sort: {fields: Data, order: DESC}) {
+      edges {
+        node {
           Title
           Data(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
           Subtitle
-          Content
-          Slug
-          SEO{
-            Title
-            Description
-          }
-        }
-        next{
-          Title
-          Slug
-        }
-        previous{
-          Title
           Slug
         }
       }
+      totalCount
     }
+    allStrapiPortfolios(sort: {order: DESC, fields: Date}) {
+      edges {
+        node {
+          Date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+          Title
+          slug
+        }
+      }
+      totalCount
     }
+  }
+  
+  
+  
+  
   `).then((result) => {
     const posts = result.data.allStrapiBlogPosts.edges;
     const pages = result.data.allStrapiPages.edges;
+    const portfolios = result.data.allStrapiPortfolios.edges;
 
+    // create a page for each blog post
     posts.forEach(({ node, previous, next }) => {
       createPage({
         path: `/blog/${node.Slug}`,
@@ -75,6 +79,19 @@ exports.createPages = ({ graphql, actions }) => {
       });
     });
 
+    // create a page for each portfolio post
+    portfolios.forEach(({ node }) => {
+      createPage({
+        path: `/portfolio/${node.slug}`,
+        component: path.resolve('./src/templates/portfolio.jsx'),
+        context: {
+          slug: node.slug,
+
+        },
+      });
+    });
+
+    // create the static regular pages
     pages.forEach(({ node }) => {
       createPage({
         path: node.Slug,
@@ -85,17 +102,40 @@ exports.createPages = ({ graphql, actions }) => {
       });
     });
 
-    const postsPerPage = 5;
-    const numPages = Math.ceil(posts.length / postsPerPage);
+    // pagination configuration
+    const postsPerPage = 6;
 
-    Array.from({ length: numPages }).forEach((_, index) => {
+    // blog pagination config
+    const totalPosts = result.data.allStrapiBlogPosts.totalCount;
+    const numBlogPages = Math.ceil(totalPosts / postsPerPage);
+
+    // portfolio pagination config
+    const totalPortfolioPosts = result.data.allStrapiPortfolios.totalCount;
+    const numPortfolioPages = Math.ceil(totalPortfolioPosts / postsPerPage);
+
+    // Blog page creation
+    Array.from({ length: numBlogPages }).forEach((_, index) => {
       createPage({
         path: index === 0 ? '/blog' : `/blog/pagina/${index + 1}`,
         component: path.resolve('./src/templates/blog-list.jsx'),
         context: {
           limit: postsPerPage,
           skip: index * postsPerPage,
-          numPages,
+          numBlogPages,
+          currentPage: index + 1,
+        },
+      });
+    });
+
+    // Portfolio page creation
+    Array.from({ length: numPortfolioPages }).forEach((_, index) => {
+      createPage({
+        path: index === 0 ? '/portfolio' : `/portfolio/pagina/${index + 1}`,
+        component: path.resolve('./src/templates/portfolio-list.jsx'),
+        context: {
+          limit: postsPerPage,
+          skip: index * postsPerPage,
+          numPortfolioPages,
           currentPage: index + 1,
         },
       });
