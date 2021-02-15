@@ -19,12 +19,12 @@ const Portfolios = ({ data }) => {
       <S.PostHeader style={{ backgroundImage: ` url(${portfolio.thumbnail.childImageSharp.fluid.src})` }}>
         <S.Shadow />
         <S.PostTitle>
-          {portfolio.Title}
+          {portfolio.title}
         </S.PostTitle>
         <S.PostDescription>{portfolio.description}</S.PostDescription>
       </S.PostHeader>
       <S.MainContent>
-        <Markdown source={portfolio.content} escapeHtml={false} />
+        <Markdown source={portfolio.Content} escapeHtml={false} />
       </S.MainContent>
     </Layout>
   );

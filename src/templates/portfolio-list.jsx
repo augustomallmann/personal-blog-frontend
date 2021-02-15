@@ -27,13 +27,12 @@ const Portfolios = (props) => {
       <SEO title="Home" />
       {isFirst ? <HeaderDetails details={portfolioDetails} /> : null}
       <S.ListWrapper>
-
         {postList.map(({
           node: {
             slug,
             data,
             title,
-            subtitle,
+            description,
             thumbnail,
 
           },
@@ -42,7 +41,7 @@ const Portfolios = (props) => {
             slug={slug}
             date={data}
             title={title}
-            description={subtitle}
+            description={description}
             thumbnail={thumbnail}
           />
         ))}
@@ -70,6 +69,7 @@ query ( $skip: Int!, $limit: Int!) {
       node {
         Content
         date
+        slug
         description
         title
         thumbnail {
