@@ -4,7 +4,7 @@ import media from 'styled-media-query';
 export const NavbarWrapper = styled.div`
   align-items: center;
   background: var(--primaryBackground);
-  display: ${(props) => (props.toggleMenu ? 'flex' : 'block')};
+  display: flex;  
   flex-direction: row;
   justify-content: space-between;
   height: 70px
@@ -14,6 +14,10 @@ export const NavbarWrapper = styled.div`
   width: 100vw;
   padding: 0 15px 0  0;
   z-index: 99;
+  ${media.lessThan('medium')`
+    display: ${(props) => (props.toggleMenu ? 'flex' : 'block')};
+
+  `}
   
 `;
 export const TopMenuWrapper = styled.div`

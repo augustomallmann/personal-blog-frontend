@@ -1,5 +1,4 @@
 require('dotenv').config();
-const queries = require('./src/utils/algolia-queries');
 
 module.exports = {
   siteMetadata: {
@@ -25,7 +24,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: 'http://localhost:1337',
+        apiURL: 'https://personal-blog-backend.herokuapp.com',
         queryLimit: 1000, // Default to 100
         contentTypes: ['pages', 'blog-posts', 'portfolios'],
         singleTypes: ['hero', 'portofolio', 'menu', 'blog', 'global'],
@@ -44,20 +43,7 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-algolia-search',
-      options: {
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_ADMIN_KEY,
-        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-        queries,
-        chunkSize: 10000, // default: 1000
-        settings: {
-          // optional, any index settings
-        },
-        enablePartialUpdates: true, // default: false
-      },
-    },
+
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

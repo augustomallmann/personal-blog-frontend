@@ -2,7 +2,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState, useEffect } from 'react';
 import { HomeSmile } from '@styled-icons/boxicons-regular/HomeSmile';
-import { SearchAlt } from '@styled-icons/boxicons-regular/SearchAlt';
 import { Sun } from '@styled-icons/feather/Sun';
 import { ArrowUp } from '@styled-icons/bootstrap/ArrowUp';
 import { Moon } from '@styled-icons/evaicons-solid/Moon';
@@ -32,18 +31,6 @@ const MenuBar = () => {
         >
           <S.MenuBarItem>
             <HomeSmile />
-          </S.MenuBarItem>
-        </S.MenuBarLink>
-        <S.MenuBarLink
-          to="/search/"
-          cover
-          direction="right"
-          bg={getThemeColor()}
-          duration={0.6}
-          title="Pesquisar"
-        >
-          <S.MenuBarItem>
-            <SearchAlt />
           </S.MenuBarItem>
         </S.MenuBarLink>
       </S.MenuBarGroup>
