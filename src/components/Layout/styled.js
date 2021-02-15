@@ -16,7 +16,7 @@ export const LayoutMain = styled.main`
   min-height: 100vh;
   width: 100%;
 
-  ${media.greaterThan('large')`
+  ${media.greaterThan('medium')`
   padding: 4rem 0 0 3.75rem;
   `}
 
@@ -26,7 +26,7 @@ export const LayoutMain = styled.main`
       "posts"
       "pagination";
   }
-  ${media.lessThan('large')`
+  ${media.lessThan('medium')`
     padding: 4.125rem 0 3rem 0;
   `}
 `;

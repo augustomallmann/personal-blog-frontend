@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const PostHeader = styled.header`
   position: relative;
   color: var(--white);
-  margin: auto;
+  margin: 0 auto;
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -13,7 +14,10 @@ export const PostHeader = styled.header`
   max-width: 70rem;
   padding: 5rem 5rem 1rem;
   z-index:0;
-`;
+  ${media.lessThan('small')`
+  padding: 5rem 0rem 1rem;
+
+`}`;
 
 export const Shadow = styled.div`
   position: absolute;
@@ -33,6 +37,13 @@ export const PostTitle = styled.h1`
   font-weight: 700;
   padding: 0 1.4rem;
   margin: 1rem 0;
+  ${media.lessThan('medium')`
+   
+    font-size: 2.125rem;
+    line-height: 2.5rem;
+  
+`}
+  
 `;
 
 export const PostDescription = styled.h2`
@@ -183,4 +194,8 @@ export const MainContent = styled.section`
       opacity: 0.8;
     }
   }
+  ${media.lessThan('small')`
+  
+  padding: 2rem 0rem;
+`}
 `;

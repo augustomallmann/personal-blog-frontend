@@ -24,17 +24,14 @@ export const PostItemWrapper = styled.section`
   border-radius: 5px;
   margin: 1rem;
   color: var(--texts);
-  }
-  img{
-    border-radius: 5px 5px 0 0;
-
-  }
-
-  body#grid & {
-    border: none;
+  border: none;
     flex-direction: column;
     justify-content: center;
   }
+  img{
+    border-radius: 5px 5px 0 0;
+  }
+  
 `;
 
 export const PostItemTag = styled.span`
@@ -78,4 +75,16 @@ export const PostItemDescription = styled.p`
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.2;
+`;
+
+export const ThumbnailWrapper = styled.div`
+  overflow: hidden;
+  &:hover {
+    cursor: pointer;
+
+    & img {
+      transform: scale(1.1);
+      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
+  }
 `;

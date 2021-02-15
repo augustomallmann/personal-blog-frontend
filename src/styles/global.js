@@ -102,5 +102,6 @@ const GlobalStyles = createGlobalStyle`
     --white: #fff;
     --black: #222;
   }
+
 `;
 export default GlobalStyles;

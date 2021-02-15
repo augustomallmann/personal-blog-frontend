@@ -1,3 +1,7 @@
 responsividade
-seo
-imagens eesponsivas
+
+
+
+1170
+manter menu bar
+reduzir fonte do h1 hero

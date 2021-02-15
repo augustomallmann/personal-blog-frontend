@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const HeaderWrap = styled.section`
   max-width: 1300px;
@@ -10,6 +11,12 @@ export const HeadingOne = styled.h1`
   font-size: 4rem;
   font-weight: 700;
   margin: 1rem 0;
+  ${media.lessThan('medium')`
+   
+    font-size: 2.625rem;
+    line-height: 3.125rem;
+  
+`}
 `;
 export const Description = styled.p`
   color: var(--texts);

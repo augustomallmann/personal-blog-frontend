@@ -14,13 +14,7 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     // must be the first to work with gatsby-remark-images
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'uploads',
-        path: `${__dirname}/static/assets/img`,
-      },
-    },
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -104,9 +98,6 @@ module.exports = {
     },
 
     'gatsby-plugin-sitemap',
-
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    'gatsby-plugin-offline',
   ],
 };

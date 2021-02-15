@@ -8,8 +8,9 @@ const PostItem = ({
 }) => (
   <S.PostItemLink to={slug} cover direction="right" bg={getThemeColor()} duration={0.6}>
     <S.PostItemWrapper>
-      {thumbnail && <S.PostThumbnail src={thumbnail.childImageSharp.fluid.src} />}
-
+      <S.ThumbnailWrapper>
+        {thumbnail && <S.PostThumbnail src={thumbnail.childImageSharp.fluid.src} />}
+      </S.ThumbnailWrapper>
       <S.PostItemInfo>
 
         <S.PostItemTitle>

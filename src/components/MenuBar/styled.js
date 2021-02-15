@@ -16,7 +16,7 @@ export const MenuBarWrapper = styled.aside`
   z-index: 98;
 
 
-  ${media.lessThan('large')`
+  ${media.lessThan('medium')`
   bottom: 0;
   flex-direction: row;
   height: auto;
@@ -33,7 +33,7 @@ export const MenuBarGroup = styled.div`
     margin-top: 4rem;
   }
 
-  ${media.lessThan('large')`
+  ${media.lessThan('medium')`
     flex-direction: row;
     &:first-of-type{
       margin-top: 0rem;
@@ -69,16 +69,16 @@ export const MenuBarItem = styled.span`
     color: var(--highlight);
   }
   &.display {
-    ${media.lessThan('large')`
+    ${media.lessThan('medium')`
       display: none;
     `}
   }
-  ${media.greaterThan('large')`
+  ${media.greaterThan('medium')`
     &:hover {
       color: var(--highlight);
     }
   `}
-  ${media.lessThan('large')`
+  ${media.lessThan('medium')`
     height: 3.2rem;
     padding: .9rem;
     position: relative;

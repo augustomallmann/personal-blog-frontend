@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
-
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 export const LogoWrapper = styled.section`
   color: var(--texts);
@@ -9,7 +8,7 @@ export const LogoWrapper = styled.section`
   flex-direction: row;
 `;
 
-export const LogoLink = styled(Link)`
+export const LogoLink = styled(AniLink)`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,20 +52,6 @@ export const LogoIcon = styled.span`
   &:hover {
     color: var(--highlight);
   }
-  &.display {
-    ${media.lessThan('large')`
-      display: none;
-    `}
-  }
-  ${media.greaterThan('large')`
-    &:hover {
-      color: var(--highlight);
-    }
-  `}
-  ${media.lessThan('large')`
-    height: 3.2rem;
-    padding: .9rem;
-    position: relative;
-    width: 3.2rem;
-  `}
+  
+  
 `;
